@@ -1,19 +1,21 @@
-NAME = megaphone
+NAME = zombieHorde
+
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = megaphone.cpp
-OBJ = $(SRC:.cpp=.o)
+
+SRCS = Zombie.cpp zombieHorde.cpp main.cpp
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
